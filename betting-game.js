@@ -1,6 +1,4 @@
-var bankroll = 100; //player starts with $100
-
-//use while loop to keep looping until bankroll is 0
+var bankroll = 100;
 
 while (bankroll > 0) {
 
