@@ -24,6 +24,8 @@ $(document).ready(function() {
         $("span").text("You lost your bet! Your bankroll is now " + bankroll + ".");
       };
 
+      $('form').trigger("reset");
+
     } else if (bankroll <=0) {
 
       $("span").text("Your bankroll is 0. Game Over.");
