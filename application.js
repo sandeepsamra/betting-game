@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+  //Use form to play betting game
+
   var bankroll = 100;
   $("form").submit(function(event) {
     
@@ -14,14 +17,14 @@ $(document).ready(function() {
 
       if (numguess === randnum) {
         bankroll += bet;
-        if (bankroll === 0) bankroll = 0;
         $("span").text("You won your bet! Your bankroll is now " + bankroll + ".");
+        $("#dollarsign").effect("bounce", { times:3 }, 300);
       } else if ((numguess === (randnum - 1)) || (numguess === (randnum + 1))) {
         $("span").text("You were only one number off. Your bankroll is still " + bankroll + ".");
       } else if ((numguess < (randnum - 1)) || (numguess > (randnum + 1))) {
         bankroll -= bet;
-        if (bankroll < 0) bankroll = 0;
         $("span").text("You lost your bet! Your bankroll is now " + bankroll + ".");
+        $("#dollarsign").fadeOut("slow").fadeIn("slow");
       };
 
       $('form').trigger("reset");
@@ -32,6 +35,13 @@ $(document).ready(function() {
       
     };
 
+  });
+
+  //Restart game
+
+  $("button").on("click", function() {
+    bankroll = 100
+    $("span").text("Game restarted. Your bankroll is back to 100.");
   });
 
 });

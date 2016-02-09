@@ -3,20 +3,39 @@
    <head>
       <title>Betting Game</title>
     <script src="jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
     <script src="application.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="application.css">
       
    </head>
    
    <body>
-      <form>
-        Place a bet (between 5 and 10):<br>
-        <input type="integer" name="bet" id="bet"><br>
-        Guess a number (between 1 and 10):<br>
-        <input type="integer" name="number" id="number"><br>
-        <input type="submit" value="submit" />
-      </form>
 
-      <span></span>
+    <div class="container">
+      <div class="row" id="game">
+        <div class="col-sm-4" align="right">
+          <img id ="dollarsign" src="dollarsign.jpeg">
+        </div>
+        <div class="col-sm-4">
+            <form>
+              Place a bet between $5 and $10 (integer only please!):<br>
+              <input type="integer" name="bet" id="bet"><br>
+              Guess a number between 1 and 10:<br>
+              <input type="integer" name="number" id="number"><br>
+              <input type="submit" value="submit" />
+              <br/>
+          </form>
+
+          <span></span>
+
+          <br/>
+
+          <button type="button">Restart Game</button>
+
+        </div>
+      </div>
+    </div>
 
    </body>
 </html>
