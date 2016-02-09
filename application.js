@@ -13,17 +13,19 @@ $(document).ready(function() {
 
     var randnum = Math.floor(Math.random() * 10) + 1;
 
-    if (bankroll > 0) { 
+    if ((bankroll > 0) && (bet >= 5 && bet <= 10) && (numguess >= 1 && numguess <= 10)) { 
 
       if (numguess === randnum) {
         bankroll += bet;
-        $("span").text("You won your bet! Your bankroll is now " + bankroll + ".");
+        if (bankroll === 0) bankroll = 0;
+        $("span").text("You won your bet! Your bankroll is now $" + bankroll + ".");
         $("#dollarsign").effect("bounce", { times:3 }, 300);
       } else if ((numguess === (randnum - 1)) || (numguess === (randnum + 1))) {
-        $("span").text("You were only one number off. Your bankroll is still " + bankroll + ".");
+        $("span").text("You were only one number off. Your bankroll is still $" + bankroll + ".");
       } else if ((numguess < (randnum - 1)) || (numguess > (randnum + 1))) {
         bankroll -= bet;
-        $("span").text("You lost your bet! Your bankroll is now " + bankroll + ".");
+        if (bankroll < 0) bankroll = 0;
+        $("span").text("You lost your bet! Your bankroll is now $" + bankroll + ".");
         $("#dollarsign").fadeOut("slow").fadeIn("slow");
       };
 
@@ -31,7 +33,7 @@ $(document).ready(function() {
 
     } else if (bankroll <=0) {
 
-      $("span").text("Your bankroll is 0. Game Over.");
+      $("span").text("Your bankroll is $0. Game Over.");
       
     };
 
@@ -41,7 +43,7 @@ $(document).ready(function() {
 
   $("button").on("click", function() {
     bankroll = 100
-    $("span").text("Game restarted. Your bankroll is back to 100.");
+    $("span").text("Game restarted. Your bankroll is back to $100.");
   });
 
 });
