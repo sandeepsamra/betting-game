@@ -8,3 +8,5 @@ This game allows a user to enter a bet between $5 and $10 (the user starts with 
 - in all other cases, the user's bankroll is decreased by their bet amount.
 
 The game is over when the user's bankroll gets to $0. The user can restart the game at any time.
+
+Built using Javascript, jQuery, HTML and CSS.
